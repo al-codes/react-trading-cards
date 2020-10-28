@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; //hash of all the trading card info
 const tradingCardData = [
   {
     name: 'Balloonicorn',
@@ -49,7 +49,7 @@ const tradingCardData = [
     imgUrl: '/static/img/merge.jpg'
   }
 ];
-
+//abstract Trading card class defining properties of card
 function TradingCard(props) {
   return (
     <div className="card">
@@ -67,25 +67,26 @@ function TradingCard(props) {
 function TradingCardContainer() {
 const tradingCards = [];
 
+//for loop with key, value   Object.entries returns an array of objects own key value pairs
   for (const [i, currentCard] of Object.entries(tradingCardData)) {
     tradingCards.push(
-      <TradingCard
+      <TradingCard //Trading Card class defined with value name instead of props
         name={currentCard.name}
         skill={currentCard.skill}
         imageUrl={currentCard.imageUrl}
       />
     );
   }
-
+//returns list that you just pushed all the trading cards into above
   return (
     <div>
-      {tradingCards}
+      {tradingCards} 
     </div>
   );
 }
 
 
-ReactDOM.render( <TradingCardContainer />, 
+ReactDOM.render( <TradingCardContainer />, //mount TradingCardContainer on element #container
   document.querySelector('#container'));
 
 
